@@ -26,7 +26,6 @@ rect_color = (255, 0, 0)  # Red color represented by RGB values
 rect_x = random.choice(coordinates)
 rect_y = random.choice(coordinates)
 
-
 while True:
 
     for event in pygame.event.get():
