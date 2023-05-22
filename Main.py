@@ -15,6 +15,9 @@ Outer2_Surface.fill((150, 195, 235))
 clock = pygame.time.Clock()
 Font_surface = Font.render(f"Score: {score}", True, "black")
 Highscore_surface = Font.render(f"High Score: {HighScore}", True, "black")
+
+rectangle = pygame.draw.rect
+
 while True:
 
     for event in pygame.event.get():
