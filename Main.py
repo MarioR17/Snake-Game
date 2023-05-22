@@ -1,4 +1,6 @@
 import pygame
+import random
+
 from sys import exit
 pygame.init()
 ## 500x500 for checkerboard background 
@@ -16,7 +18,14 @@ clock = pygame.time.Clock()
 Font_surface = Font.render(f"Score: {score}", True, "black")
 Highscore_surface = Font.render(f"High Score: {HighScore}", True, "black")
 
-rectangle = pygame.draw.rect
+coordinates = [0, 50, 100, 150, 200, 250, 300, 350, 400, 450]
+
+rect_width = 50
+rect_height = 50
+rect_color = (255, 0, 0)  # Red color represented by RGB values
+rect_x = random.choice(coordinates)
+rect_y = random.choice(coordinates)
+
 
 while True:
 
@@ -29,6 +38,7 @@ while True:
     screen.blit(game_surface,(75, 125))
     screen.blit(Font_surface,(10,10))
     screen.blit(Highscore_surface,(270, 10))
+    pygame.draw.rect(game_surface, rect_color, (rect_x, rect_y, rect_width, rect_height))
     pygame.display.update()
     clock.tick(60)
 
