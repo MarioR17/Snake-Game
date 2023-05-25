@@ -39,6 +39,7 @@ while True:
         if event.type == pygame.QUIT:
             pygame.quit()
             exit()
+    
     keys = pygame.key.get_pressed()
 
     if keys[pygame.K_LEFT] and direction != "right":
