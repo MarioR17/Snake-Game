@@ -41,16 +41,6 @@ while True:
             exit()
     
     keys = pygame.key.get_pressed()
-
-    if keys[pygame.K_LEFT] and direction != "right":
-        direction = "left"
-    elif keys[pygame.K_RIGHT] and direction != "left":
-        direction = "right"
-    elif keys[pygame.K_UP] and direction != "down":
-        direction = "up"
-    elif keys[pygame.K_DOWN] and direction != "up":
-        direction = "down"
-    
     
     if keys[pygame.K_LEFT]:
         x_cor -= space
