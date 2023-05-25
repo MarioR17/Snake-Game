@@ -31,14 +31,27 @@ x_cor = 240
 y_cor = 240
 space = 20
 
+direction = "right"
+
 while True:
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
             exit()
+    
     keys = pygame.key.get_pressed()
 
+    if keys[pygame.K_LEFT] and direction != "right":
+        direction = "left"
+    elif keys[pygame.K_RIGHT] and direction != "left":
+        direction = "right"
+    elif keys[pygame.K_UP] and direction != "down":
+        direction = "up"
+    elif keys[pygame.K_DOWN] and direction != "up":
+        direction = "down"
+    
+    
     if keys[pygame.K_LEFT]:
         x_cor -= space
 
