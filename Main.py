@@ -31,6 +31,8 @@ x_cor = 240
 y_cor = 240
 space = 20
 
+direction = "right"
+
 while True:
 
     for event in pygame.event.get():
@@ -39,16 +41,26 @@ while True:
             exit()
     keys = pygame.key.get_pressed()
 
-    if keys[pygame.K_LEFT]:
+    if keys[pygame.K_LEFT] and direction != "right":
+        direction = "left"
+    elif keys[pygame.K_RIGHT] and direction != "left":
+        direction = "right"
+    elif keys[pygame.K_UP] and direction != "down":
+        direction = "up"
+    elif keys[pygame.K_DOWN] and direction != "up":
+        direction = "down"
+    
+
+    if direction == "left" and x_cor > 0:
         x_cor -= space
 
-    if keys[pygame.K_RIGHT]:
+    if direction == "right" and x_cor < 500 - rect_width:
         x_cor += space
 
-    if keys[pygame.K_UP]:
+    if direction == "up" and y_cor > 0:
         y_cor -= space
 
-    if keys[pygame.K_DOWN]:
+    if direction == "down" and y_cor < 500 - rect_height:
         y_cor += space
 
 
@@ -62,5 +74,5 @@ while True:
     pygame.draw.rect(screen, rect_color, (rect_x + 75, rect_y + 125, rect_width, rect_height))
     pygame.draw.rect(screen, (0, 0, 255), (x_cor + 75, y_cor + 125, rect_width, rect_height))
     pygame.display.update()
-    clock.tick(7)
+    clock.tick(8)
 
